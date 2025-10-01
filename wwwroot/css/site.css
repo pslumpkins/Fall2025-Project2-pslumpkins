@@ -1,22 +1,154 @@
-html {
-  font-size: 14px;
+:root {
+    --pine: #1c351d;
+    --fern: #2b5c30;
+    --moss: #6b8f71;
+    --sky: #b7d3df;
+    --sun: #ffcc66;
+    --clay: #d6783a;
+    --bark: #2a2520;
+    --paper: #f5eddc;
+    --bg1: url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
 body {
-  margin-bottom: 60px;
+    font-family: 'Courier New', monospace;
+    color: var(--paper);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background-image: var(--bg1);
+    background-size: cover;
+    background-position: center 40%;
+    background-attachment: fixed;
+}
+
+.page-header {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+    .page-header h1 {
+        margin: 0;
+        padding: 14px 24px;
+        display: inline-block;
+        background: linear-gradient(180deg, rgba(28,53,29,.9), rgba(27,40,28,.9));
+        border: none;
+        color: var(--sun);
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        text-shadow: 0 2px 0 rgba(0,0,0,.45);
+        box-shadow: 0 8px 0 rgba(0,0,0,.35), inset 0 0 0 3px rgba(0,0,0,.15);
+        transform: translateY(0);
+        transition: transform .15s ease;
+        cursor: pointer;
+    }
+
+        .page-header h1:hover {
+            transform: translateY(-2px);
+        }
+
+.container {
+    z-index: 1;
+    width: min(640px, 92vw);
+    margin: 0 auto;
+    padding: 22px;
+    background: rgba(26, 31, 28, 0.55);
+    border: 2px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(6px) saturate(110%);
+    box-shadow: 0 12px 40px rgba(0,0,0,.45);
+    border-radius: 10px;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+    .search-bar input {
+        flex: 1 1 280px;
+        padding: 12px 14px;
+        border: 2px dashed var(--moss);
+        background: rgba(18,20,18,.85);
+        color: var(--sky);
+        font-size: 1rem;
+        border-radius: 6px;
+        outline: none;
+        box-shadow: inset 0 2px 0 rgba(0,0,0,.5);
+    }
+
+        .search-bar input::placeholder {
+            color: rgba(183,211,223,.65);
+        }
+
+    .search-bar button {
+        padding: 12px 14px;
+        background: linear-gradient(180deg, var(--fern), var(--pine));
+        border: none;
+        color: #ffeecf;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 0 6px 0 rgba(0,0,0,.4), inset 0 0 0 3px rgba(0,0,0,.18);
+        transform: translateY(0);
+        transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+    }
+
+        .search-bar button:hover {
+            filter: brightness(1.06);
+            transform: translateY(-1px);
+        }
+
+        .search-bar button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 rgba(0,0,0,.5), inset 0 0 0 3px rgba(0,0,0,.22);
+        }
+
+#time, #seachResults {
+    margin-top: 18px;
+    padding: 12px 14px;
+    background: rgba(18,20,18,.78);
+    border: 2px solid var(--moss);
+    color: var(--sky);
+    font-size: 1.05rem;
+    text-shadow: 0 1px 0 rgba(0,0,0,.6);
+    border-radius: 8px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width:480px) {
+    .page-header h1 {
+        font-size: 2rem;
+        letter-spacing: .15em;
+        padding: 10px 16px;
+    }
+
+    .container {
+        padding: 16px;
+    }
 }
