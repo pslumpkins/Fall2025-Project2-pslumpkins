@@ -12,8 +12,8 @@
 
 
 html, body {
-    height: 100%;
-    margin: 0;
+    height: auto;
+    min-height: 100%;
 }
 
 body {
@@ -22,13 +22,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; 
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden; 
+    overflow-y: auto; 
     background-image: var(--bg1);
     background-size: cover;
-    background-position: center 40%;
+    background-position: 50% 15%;
     background-attachment: fixed;
+    padding: 32px 16px 64px; 
+    gap: 20px;
 }
 
 .page-header {
@@ -38,6 +41,7 @@ body {
 }
 
     .page-header h1 {
+        font-size: clamp(3.2rem, 8vw, 7rem);
         margin: 0;
         padding: 14px 24px;
         display: inline-block;
@@ -59,7 +63,7 @@ body {
 
 .container {
     z-index: 1;
-    width: min(640px, 92vw);
+    width: min(760px, 94vw);
     margin: 0 auto;
     padding: 22px;
     background: rgba(26, 31, 28, 0.55);
@@ -67,6 +71,13 @@ body {
     backdrop-filter: blur(6px) saturate(110%);
     box-shadow: 0 12px 40px rgba(0,0,0,.45);
     border-radius: 10px;
+}
+
+.result h3 a,
+.result p,
+.result span {
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .search-bar {
@@ -143,7 +154,7 @@ body {
 
 @media (max-width:480px) {
     .page-header h1 {
-        font-size: 2rem;
+        font-size: clamp(2.2rem, 10vw, 3.2rem);
         letter-spacing: .15em;
         padding: 10px 16px;
     }
